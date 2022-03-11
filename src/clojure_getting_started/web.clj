@@ -7,11 +7,13 @@
             [environ.core :refer [env]]
             [camel-snake-kebab.core :as kebab]))
 
+(def link (env :link "https://www.wikipedia.org"))
 
 (defn splash []
   {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body "Hello from Heroku"})
+   :headers {"Content-Type" "text/html"}
+   :body (format "<a href=\"%s\">link</a>"
+                 link)})
 
 (defroutes app
   (GET "/camel" {{input :input} :params}
