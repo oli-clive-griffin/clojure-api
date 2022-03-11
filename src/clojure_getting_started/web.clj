@@ -22,7 +22,6 @@
                    (format "<li>%s</li>" (:content s)))
                  ["</ul>"])})
 
-
 (defn record [input]
   (db/insert! (env :database-url "postgres://localhost:5432/kebabs")
               :sayings {:content input}))
